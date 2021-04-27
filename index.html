@@ -1,0 +1,238 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+      body {
+        margin:0;
+        padding:0;
+      }
+      .header {
+        top: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 20;
+        background: #ffffff;
+        box-shadow: 0 0px 8px rgb(0 0 0 / 30%);
+      }
+      .header .content {
+        display: flex;
+        align-items: center;
+        min-height: 45px;
+        margin: 0 50px;
+      }
+      .header h1 {
+        font-size:16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+      }
+      .right-item {
+        margin-left: auto;
+      }
+      .header .right-item {
+        cursor: pointer;
+      }
+      .content {
+        margin-top: 60px;
+        min-height: 50%;
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #f7f8fa;
+      }
+      .footer .title {
+        display: flex;
+        width: 100%;
+        min-height: 45px;
+        background: #222;
+        color: #fff;
+      }
+      .footer .title .content {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 0 50px;
+      }
+      .footer .title h1 {
+        font-size: 16px;
+        text-decoration: uppercase;
+      }
+      .footer .title .right-item {
+        display: flex;
+      }
+      .footer .material-icons {
+        margin:0 10px;
+      }
+
+      <!-- { Module content } -->
+
+      .ocpd-product-main {
+        width: calc(100% - 20px * 2);
+        margin: 0;
+        display: flex;
+        padding: 20px;
+        align-items: stretch;
+        justify-content: space-between;
+      }
+
+      .ocpd-product-preview {
+        width: 50%;
+        padding: 0;
+        padding-right: 40px;
+        margin: 80px 0 0 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+      }
+
+      .ocpd-product-layer  {
+        position: absolute;
+        width: 100%;
+        height: 300px;
+      }
+
+      .ocpd-layers-group ul  {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+      }
+      .ocpd-layers-tabs li {
+        list-style: none;
+        color: #9b9b9b;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin: 0px 7px;
+        font-size: 1.2em;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .ocpd-icons-field {
+        display: flex;
+      }
+
+      .ocpd-icon-img {
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      .ocpd-icon-img img {
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+      }
+
+      .ocpd-product-field {
+        background: url('/images/fields/bg/1 Desert Rouse.png') 0 0 no-repeat;
+        background-size: contain;
+      }
+      .ocpd-product-frame {
+        background: url('/images/1_Maple.png') 0 0 no-repeat;
+        background-size: contain;
+      }
+      .ocpd-product-checkers {
+        background: url('/images/1_Sedona_Brown.png') 0 0 no-repeat;
+        background-size: contain;
+      }
+      .ocpd-product-cubes {
+        background: url('/images/1_Pearled_Acrylic_Black.png') 0 0 no-repeat;
+        background-size: contain;
+      }
+      .ocpd-product-dice {
+        background: url('/images/1_Blue_Marbleized.png') 0 0 no-repeat;
+        background-size: contain;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Temporary content -->
+    <div class="header">
+      <div class="content">
+        <h1>some site</h1>
+        <div class="right-item">
+          <i class="material-icons">search</i>
+          <i class="material-icons">shopping_cart</i>
+          <i class="material-icons">reorder</i>
+        </div>
+      </div>
+    </div>
+    <!-- End temporary content -->
+    <div class="content">
+      <!-- module content  -->
+      <div class="ocpd-product-main">
+          <div class="ocpd-product-preview">
+            <div class="ocpd-product-layer ocpd-product-field"></div>
+            <div class="ocpd-product-layer ocpd-product-frame"></div>
+            <div class="ocpd-product-layer ocpd-product-checkers"></div>
+            <div class="ocpd-product-layer ocpd-product-cubes"></div>
+            <div class="ocpd-product-layer ocpd-product-dice"></div>
+          </div>
+          <div class="ocpd-product-layers">
+            <div class="ocpd-layers-group">
+              <ul class="ocpd-layers-tabs">
+                <li>Field</li>
+                <li>Frame</li>
+                <li>Covers</li>
+                <li>Checkers</li>
+                <li>Double cubes</li>
+                <li>Dice</li>
+              </ul>
+            </div>
+            <div class="ocpd-layers-content">
+              <div class="ocpd-icons-field">
+                <div class="ocpd-icon-img" data-url="images/fields/bg/1 Desert Rouse.png">
+                  <img src="images/fields/ico/1 Desert Rouse.png">
+                </div>
+                <div class="ocpd-icon-img" data-url="images/fields/bg/2 Bubingo Bezsh.png">
+                  <img src="images/fields/ico/2 Bubingo Bezsh.png">
+                </div>
+              </div>
+            </div>
+            <div class="ocpd-product-price">
+
+            </div>
+            <div class="ocpd-layers-control">
+
+            </div>
+          </div>
+      </div>
+      <!-- end module content -->
+    </div>
+    <!-- Temporary content -->
+    <div class="footer">
+      <div class="title">
+        <div class="content">
+          <h1>Footer Content</h1>
+          <div class="right-item">
+            <i class="material-icons">email</i>
+            <input type="text" placeholder="Enter your email">
+            <button>SUBSCRIBE</button>
+            <i class="material-icons">facebook</i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End temporary content -->
+
+    <script type="text/javascript">
+      window.addEventListener('DOMContentLoaded', (event) => {
+        console.log('Load');
+        document.querySelectorAll(".ocpd-icons-field .ocpd-icon-img").forEach(function(el) {
+          el.addEventListener('click', event => {
+            var layerimg = event.getAttribute('data-url');
+            console.log(layerimg);
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>
