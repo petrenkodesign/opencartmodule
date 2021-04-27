@@ -226,9 +226,9 @@
       window.addEventListener('DOMContentLoaded', (event) => {
         console.log('Load');
         document.querySelectorAll(".ocpd-icons-field .ocpd-icon-img").forEach(function(el) {
-          el.addEventListener('click', event => {
-            var layerimg = event.getAttribute('data-url');
-            console.log(layerimg);
+          el.addEventListener('click', function() {
+            var layerimg = this.getAttribute('data-url');
+            document.querySelector('.ocpd-product-field').style.cssText = "background-image: url('"+layerimg+"');"
           });
         });
       });
