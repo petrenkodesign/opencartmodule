@@ -3,154 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style type="text/css">
-      body {
-        margin:0;
-        padding:0;
-      }
-      .header {
-        top: 0;
-        position: fixed;
-        width: 100%;
-        z-index: 20;
-        background: #ffffff;
-        box-shadow: 0 0px 8px rgb(0 0 0 / 30%);
-      }
-      .header .content {
-        display: flex;
-        align-items: center;
-        min-height: 45px;
-        margin: 0 50px;
-      }
-      .header h1 {
-        font-size:16px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0;
-        padding: 0;
-      }
-      .right-item {
-        margin-left: auto;
-      }
-      .header .right-item {
-        cursor: pointer;
-      }
-      .content {
-        margin-top: 60px;
-        min-height: 50%;
-      }
-      .footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: #f7f8fa;
-      }
-      .footer .title {
-        display: flex;
-        width: 100%;
-        min-height: 45px;
-        background: #222;
-        color: #fff;
-      }
-      .footer .title .content {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        margin: 0 50px;
-      }
-      .footer .title h1 {
-        font-size: 16px;
-        text-decoration: uppercase;
-      }
-      .footer .title .right-item {
-        display: flex;
-      }
-      .footer .material-icons {
-        margin:0 10px;
-      }
-
-      <!-- { Module content } -->
-
-      .ocpd-product-main {
-        width: calc(100% - 20px * 2);
-        margin: 0;
-        display: flex;
-        padding: 20px;
-        align-items: stretch;
-        justify-content: space-between;
-      }
-
-      .ocpd-product-preview {
-        width: 50%;
-        padding: 0;
-        padding-right: 40px;
-        margin: 80px 0 0 0;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: stretch;
-        align-items: stretch;
-      }
-
-      .ocpd-product-layer  {
-        position: absolute;
-        width: 100%;
-        height: 300px;
-      }
-
-      .ocpd-layers-group ul  {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0;
-      }
-      .ocpd-layers-tabs li {
-        list-style: none;
-        color: #9b9b9b;
-        font-weight: 500;
-        text-transform: uppercase;
-        margin: 0px 7px;
-        font-size: 1.2em;
-        cursor: pointer;
-        position: relative;
-      }
-
-      .ocpd-icons-field {
-        display: flex;
-      }
-
-      .ocpd-icon-img {
-        margin: 10px;
-        cursor: pointer;
-      }
-
-      .ocpd-icon-img img {
-        width: 85px;
-        height: 85px;
-        border-radius: 50%;
-      }
-
-      .ocpd-product-field {
-        background: url('images/fields/bg/1 Desert Rouse.png') 0 0 no-repeat;
-        background-size: contain;
-      }
-      .ocpd-product-frame {
-        background: url('images/1_Maple.png') 0 0 no-repeat;
-        background-size: contain;
-      }
-      .ocpd-product-checkers {
-        background: url('images/1_Sedona_Brown.png') 0 0 no-repeat;
-        background-size: contain;
-      }
-      .ocpd-product-cubes {
-        background: url('images/1_Pearled_Acrylic_Black.png') 0 0 no-repeat;
-        background-size: contain;
-      }
-      .ocpd-product-dice {
-        background: url('images/1_Blue_Marbleized.png') 0 0 no-repeat;
-        background-size: contain;
-      }
-
-    </style>
+    <link href="main.css" rel="stylesheet">
   </head>
   <body>
     <!-- Temporary content -->
@@ -171,28 +24,54 @@
           <div class="ocpd-product-preview">
             <div class="ocpd-product-layer ocpd-product-field"></div>
             <div class="ocpd-product-layer ocpd-product-frame"></div>
-            <div class="ocpd-product-layer ocpd-product-checkers"></div>
-            <div class="ocpd-product-layer ocpd-product-cubes"></div>
+            <div class="ocpd-product-layer ocpd-product-covers"></div>
+            <div class="ocpd-product-layer ocpd-product-checkers-first"></div>
+            <div class="ocpd-product-layer ocpd-product-checkers-second"></div>
+            <div class="ocpd-product-layer ocpd-product-cubes-first"></div>
+            <div class="ocpd-product-layer ocpd-product-cubes-second"></div>
             <div class="ocpd-product-layer ocpd-product-dice"></div>
           </div>
           <div class="ocpd-product-layers">
             <div class="ocpd-layers-group">
               <ul class="ocpd-layers-tabs">
-                <li>Field</li>
+                <li class="active">Field</li>
                 <li>Frame</li>
                 <li>Covers</li>
                 <li>Checkers</li>
                 <li>Double cubes</li>
                 <li>Dice</li>
+                <li>Summary</li>
               </ul>
             </div>
             <div class="ocpd-layers-content">
-              <div class="ocpd-icons-field">
-                <div class="ocpd-icon-img" data-url="images/fields/bg/1 Desert Rouse.png">
+              <div class="ocpd-icons ocpd-icons-field">
+                <div class="ocpd-icon-img" data-url="images/fields/bg/opt/1-Desert-Rouse.png" data-name="Desert Rouse" data-price="20$">
                   <img src="images/fields/ico/1 Desert Rouse.png">
+                  <span class="icon-tooltip">Desert Rouse 20$</span>
                 </div>
-                <div class="ocpd-icon-img" data-url="images/fields/bg/2 Bubingo Bezsh.png">
+                <div class="ocpd-icon-img" data-url="images/fields/bg/opt/2-Bubingo-Bezsh.png" data-price="40$">
                   <img src="images/fields/ico/2 Bubingo Bezsh.png">
+                  <span class="icon-tooltip">Bubingo Bezsh 40$</span>
+                </div>
+                <div class="ocpd-icon-img" data-url="images/fields/bg/opt/3-Blue-Mahagon.png" data-price="20$">
+                  <img src="images/fields/ico/3 Blue Mahagon.png">
+                  <span class="icon-tooltip">Blue Mahagon 20$</span>
+                </div>
+                <div class="ocpd-icon-img" data-url="images/fields/bg/opt/4-Brown-Mahagon.png" data-price="10$">
+                  <img src="images/fields/ico/4 Brown Mahagon.png">
+                  <span class="icon-tooltip">Brown Mahagon 10$</span>
+                </div>
+                <div class="ocpd-icon-img" data-url="images/fields/bg/opt/5-Casino-Style.png" data-price="30$">
+                  <img src="images/fields/ico/5 Casino Style.png">
+                  <span class="icon-tooltip">Casino Style 30$</span>
+                </div>
+                <div class="ocpd-icon-img" data-url="images/fields/bg/opt/6-Casino-Style-White.png" data-price="40$">
+                  <img src="images/fields/ico/6 Casino Style White.png">
+                  <span class="icon-tooltip">Casino Style White 40$</span>
+                </div>
+                <div class="ocpd-icon-img" data-url="images/fields/bg/opt/16-Black-_-White.png" data-price="50$" data-style="true">
+                  <img src="images/fields/ico/16 Black _ White.png">
+                  <span class="icon-tooltip">Black White 50$</span>
                 </div>
               </div>
             </div>
@@ -204,6 +83,7 @@
             </div>
           </div>
       </div>
+      <div class="ocpd-preloader"></div>
       <!-- end module content -->
     </div>
     <!-- Temporary content -->
@@ -222,17 +102,7 @@
     </div>
     <!-- End temporary content -->
 
-    <script type="text/javascript">
-      window.addEventListener('DOMContentLoaded', (event) => {
-        console.log('Load');
-        document.querySelectorAll(".ocpd-icons-field .ocpd-icon-img").forEach(function(el) {
-          el.addEventListener('click', function() {
-            var layerimg = this.getAttribute('data-url');
-            document.querySelector('.ocpd-product-field').style.cssText = "background-image: url('"+layerimg+"');"
-          });
-        });
-      });
-    </script>
+    <script type="text/javascript" src="main.js"></script>
 
   </body>
 </html>

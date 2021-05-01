@@ -1,0 +1,235 @@
+body {
+  margin:0;
+  padding:0;
+}
+
+.preloader { /*image preloader block*/
+  position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+  content: "";
+}
+
+.header {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  background: #ffffff;
+  box-shadow: 0 0px 8px rgb(0 0 0 / 30%);
+}
+.header .content {
+  display: flex;
+  align-items: center;
+  min-height: 45px;
+  margin: 0 50px;
+}
+.header h1 {
+  font-size:16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+.right-item {
+  margin-left: auto;
+}
+.header .right-item {
+  cursor: pointer;
+}
+.content {
+  margin-top: 60px;
+  min-height: 50%;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #f7f8fa;
+}
+.footer .title {
+  display: flex;
+  width: 100%;
+  min-height: 45px;
+  background: #222;
+  color: #fff;
+}
+.footer .title .content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 50px;
+}
+.footer .title h1 {
+  font-size: 16px;
+  text-decoration: uppercase;
+}
+.footer .title .right-item {
+  display: flex;
+}
+.footer .material-icons {
+  margin:0 10px;
+}
+
+<!-- { Module content } -->
+
+.ocpd-product-main {
+  width: calc(100% - 20px * 2);
+  margin: 0;
+  display: flex;
+  padding: 20px;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.ocpd-product-preview {
+  max-width: 50%;
+  width: 100%;
+  padding: 0;
+  margin: 80px 0 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.ocpd-product-layer  {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+}
+
+.ocpd-product-layers {
+  max-width: 50%
+}
+
+.ocpd-layers-group ul  {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.ocpd-layers-tabs li {
+  list-style: none;
+  color: #9b9b9b;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0px 7px;
+  font-size: 1.2em;
+  cursor: pointer;
+  position: relative;
+}
+.ocpd-layers-tabs li.active::after {
+  content: " ";
+  background: #1c69d3;;
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  left: 0px;
+}
+
+.ocpd-icons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ocpd-icon-img {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.ocpd-icon-img img {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+}
+.ocpd-icon-img.active {
+  /* border-color: #1c69d3; */
+}
+.ocpd-icon-img.active img {
+  box-shadow: 0 10px 20px rgb(0 0 0 / 80%);
+}
+
+.ocpd-icon-img:hover .icon-tooltip {
+  opacity: 1;
+}
+.ocpd-icon-img .icon-tooltip {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #111;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px;
+  margin-top: 12px;
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+.ocpd-icon-img .icon-tooltip::before {
+  content: " ";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: 0;
+  right: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #111;
+  margin: auto;
+  margin-top: -15px;
+}
+
+
+.ocpd-product-field {
+  background-image: url('images/fields/bg/opt/1-Desert-Rouse.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%; /*contain;*/
+}
+.ocpd-product-frame {
+  background-image: url('images/frame/bg/opt/1-Maple.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%; /*contain;*/
+}
+.ocpd-product-covers {
+  background-image: url('images/covers/bg/1 Sedona Brown.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%; /*contain;*/
+}
+.ocpd-product-checkers-first {
+  background-image: url('images/checkers/bg/first/opt/1-Pearled-Acrylic-Black.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%; /*contain;*/
+}
+.ocpd-product-checkers-second {
+  background-image: url('images/checkers/bg/second/opt/1-Pearled-Acrylic-Black.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%; /*contain;*/
+}
+.ocpd-product-cubes-first {
+  background: url('images/cubes/bg/first/1 Blue Marbleized.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% /*contain;*/
+}
+.ocpd-product-cubes-second {
+  background: url('images/cubes/bg/second/1 Blue Marbleized.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%; /*contain;*/
+}
+.ocpd-product-dice {
+  /* background: url('images/dice/bg/first/1 Black.jpg'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
