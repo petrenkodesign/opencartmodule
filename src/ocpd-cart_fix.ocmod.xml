@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Builder image to simplecart</name>
+    <version>1.0.0</version>
+    <code>ocpd-builderimage2simplecard</code>
+    <author>Alex Petrenko</author>
+    <file path="catalog/controller/checkout/simplecheckout_cart.php">
+        <operation>
+            <search><![CDATA[foreach ($products as $product) {]]></search>
+            <add position="before"><![CDATA[
+               foreach ($products as $product) {
+                  foreach ($product['option'] as $option) {
+                    if ($option['type'] == 'file') {
+                      $this->_templateData['it_is_builder'] = true;
+                    }
+                  }
+               }
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[foreach ($products as $product) {]]></search>
+            <add position="after"><![CDATA[$file_image = '';
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$option_data[] = array(]]></search>
+            <add position="before"><![CDATA[
+            if ($option['type'] == 'file') {
+              $file_image = $upload_info['filename'];
+            }]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$this->_templateData['products'][] = array(]]></search>
+            <add position="before" offset="1"><![CDATA[
+              if(isset($file_image) && $file_image) {
+                if($image_cart_width<100) {
+                  $image_cart_width = 600;
+                  $image_cart_height = 400;
+                }
+                $image = $this->model_tool_image->resize($file_image, $image_cart_width, $image_cart_height);
+              }]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$image = $this->model_tool_image->resize($product['image'], $image_cart_width,]]></search>
+            <add position="before" offset="1"><![CDATA[
+              if(isset($this->_templateData['it_is_builder']) && $this->_templateData['it_is_builder']) {
+                if($image_cart_width<100) {
+                  $image_cart_width = 600;
+                  $image_cart_height = 400;
+                }
+              }
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA['name'  => $option['name'],]]></search>
+            <add position="before"><![CDATA['type'  => $option['type'],]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/simplecheckout_cart.tpl">
+        <operation>
+            <search><![CDATA[<div class="table-responsive">]]></search>
+            <add position="before"><![CDATA[
+              <?php if(isset($it_is_builder) && $it_is_builder) { ?>
+              <style>
+                .ocpd-fix-cart-show {
+                  display: block !important;
+                }
+                .ocpd-fix-cart-show img {
+                  width: 250px !important;
+                  height: 150px !important;
+                }
+                .ocpd-fix-cart-hide {
+                  display: none !important;
+                }
+                .ocpd-fix-cart-text-left {
+                  text-align: left !important;
+                  display: inline-block;
+                  min-height: 250px;
+                }
+                .ocpd-fix-cart-mwidth-250 {
+                  min-width: 250px !important;
+                }
+                @media only screen and (max-width: 640px) {
+                .ocpd-fix-cart-show {
+                  display: none !important;
+                }
+                .ocpd-fix-cart-text-left {
+                  min-height: auto;
+                }
+                .ocpd-fix-cart-text-left img {
+                  width:100% !important;
+                  max-width: 100% !important;
+                }
+                }
+              </style>
+              <?php } else { ?>
+              <style>
+                .ocpd-fix-cart-show {
+                  display: none !important;
+                }
+              </style>
+              <?php } ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<td class="image">]]></search>
+            <add position="replace"><![CDATA[<td class="image ocpd-fix-cart-hide">]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<th class="image">]]></search>
+            <add position="replace"><![CDATA[<th class="image ocpd-fix-cart-hide">]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<td class="name">]]></search>
+            <add position="replace"><![CDATA[<td class="name ocpd-fix-cart-text-left">]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<th class="name">]]></search>
+            <add position="replace"><![CDATA[<th class="name ocpd-fix-cart-mwidth-250">]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<td class="quantity">]]></search>
+            <add position="after"><![CDATA[
+              <div class="ocpd-fix-cart-show" style="position:absolute; margin-top: 50px; margin-left: -30px">
+                <?php if ($product['thumb']) { ?>
+                  <a href="<?php echo $product['thumb']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
+                <?php } ?>
+              </div>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<?php foreach ($products as $product) { ?>]]></search>
+            <add position="after"><![CDATA[
+              <?php
+                  if(isset($it_is_builder) && $it_is_builder) $product['href'] = '/index.php?route=extension/module/ocpd_constructor';
+              ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[<a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>]]></search>
+            <add position="replace"><![CDATA[<?php echo $product['name']; ?>]]></add>
+        </operation>
+    </file>
+</modification>
